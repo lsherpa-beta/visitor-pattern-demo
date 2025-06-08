@@ -1,25 +1,25 @@
 ## 🎯 Goals Achieved by Implementing the Visitor Pattern
 
-### 1. ✅ Add New Operations Without Changing Classes
+### 1. Add New Operations Without Changing Classes
 You can add new functionality to existing class hierarchies without modifying the classes themselves.  
 This keeps your code **closed for modification, but open for extension** (a core principle of SOLID design).
 
-### 2. ✅ Separate Algorithms from Object Structures
+### 2. Separate Algorithms from Object Structures
 It cleanly separates the **data (object structure)** from the **logic (algorithms/operations)**.  
 This is useful when you need to apply many unrelated operations to the same set of objects.
 
-### 3. ✅ Promotes Single Responsibility Principle
+### 3. Promotes Single Responsibility Principle
 The data classes (like `Body`, `Engine`) don't need to know about the various operations.  
 **Visitors** handle the logic, making the system more **modular and maintainable**.
 
-### 4. ✅ Enables Double Dispatch
+### 4. Enables Double Dispatch
 Normally, Java only does **single dispatch** (method call based on the object’s runtime type).  
 The Visitor pattern enables **double dispatch**, where both the element type and the visitor type are used to determine which method gets executed.  
 This allows more precise behavior based on **both object and operation**.
 
 ---
 
-## 🚧 Problems It Solves in Modern OOP
+## Problems It Solves in Modern OOP
 
 | Problem                                                             | How Visitor Helps                                       |
 |---------------------------------------------------------------------|----------------------------------------------------------|
@@ -31,7 +31,7 @@ This allows more precise behavior based on **both object and operation**.
 
 ---
 
-## 👎 Limitations to Consider
+## Limitations to Consider
 
 | Limitation                                          | Description                                                             |
 |-----------------------------------------------------|-------------------------------------------------------------------------|
@@ -40,16 +40,14 @@ This allows more precise behavior based on **both object and operation**.
 
 ---
 
-## ✅ Real-World Use Cases
+## Real-World Use Cases
 
 - **Compilers/Interpreters** – walking an abstract syntax tree (AST)
 - **Document Processing** – performing operations on elements of a document
 - **GUI Libraries** – rendering or serializing UI components
 - **Code Generation Tools** – converting structures into code/text
 
----
-
-## 🔁 Summary
+## Summary
 
 | Feature               | Benefit                                               |
 |----------------------|--------------------------------------------------------|
