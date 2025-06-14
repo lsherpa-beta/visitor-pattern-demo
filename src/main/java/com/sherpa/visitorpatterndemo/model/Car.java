@@ -3,18 +3,25 @@ package com.sherpa.visitorpatterndemo.model;
 import com.sherpa.visitorpatterndemo.Visitor;
 
 import java.util.Arrays;
+import java.util.stream.Collector;
+import java.util.stream.Stream;
 
 public class Car {
-   private Body body = new Body();
-   private Engine engine = new Engine();
-   private Wheel[] wheels = {new Wheel(), new Wheel(), new Wheel(),new Wheel()};
+    private Body body = new Body();
+    private Engine engine = new Engine();
+    private Wheel[] wheels = {new Wheel(), new Wheel(), new Wheel(), new Wheel()};
 
-   public void accept(Visitor visitor){
-       this.body.accept(visitor);
-       this.engine.accept(visitor);
-       Arrays.stream(this.wheels).forEach(wheel -> wheel.accept(visitor));
-       visitor.visit(this);
-   }
+    public <R, RR> RR accept(Visitor<R> visitor, Collector<? super R, ?, RR> collector) {
+        R r1 = this.body.accept(visitor);
+        R r2 = this.engine.accept(visitor);
+        R r3 = this.wheels[0].accept(visitor);
+        R r4 = this.wheels[1].accept(visitor);
+        R r5 = this.wheels[2].accept(visitor);
+        R r6 = this.wheels[3].accept(visitor);
+        R r7 = visitor.visit(this);
+        return Stream.of(r1, r2, r3, r4, r5, r6, r7).collect(collector);
+
+    }
 
     public Body getBody() {
         return body;
